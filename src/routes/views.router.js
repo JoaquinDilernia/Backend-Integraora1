@@ -1,13 +1,45 @@
-import { Router } from 'express';
-import CompaniesManager from '../dao/mongo/manager/companies.js';
+// Express
+import { Router } from "express";
+const views = Router();
 
-const router = Router();
-const companiesManager = new CompaniesManager();
+// Data
+import products from "../data/products.json" assert { type: "json" };
 
-router.get('/', async (req, res) => {
-    const companies = await companiesManager.getCompanies();
-    res.render('companies', { companies });
+// Endpoint para renderizar el home:
+views.get("/", (req, res) => {
+	try {
+		res.render("home", {
+			style: "styles.css",
+			documentTitle: "Home",
+			products,
+		});
+	} catch (err) {
+		return res.status(500).json({ error: err.message });
+	};
 });
 
+// Endpoint para renderizar productos con socket:
+views.get("/realtimeproducts", (req, res) => {
+	try {
+		res.render("realTimeProducts", {
+			style: "styles.css",
+			documentTitle: "Socket",
+		});
+	} catch (err) {
+		return res.status(500).json({ error: err.message });
+	};
+});
 
-export default router;
+// Endpoint para renderizar chat con socket:
+views.get("/chat", (req, res) => {
+	try {
+		res.render("chat", {
+			style: "styles.css",
+			documentTitle: "Chat",
+		});
+	} catch (err) {
+		return res.status(500).json({ error: err.message });
+	};
+});
+
+export default views;
