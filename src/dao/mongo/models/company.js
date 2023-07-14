@@ -7,10 +7,7 @@ const companySchema = new mongoose.Schema({
     address: String,
     city: String,
     country: String,
-    email: {
-        type: String,
-        unique: true,
-    },
+    email: String,
 });
 
  const companyModel = mongoose.model(companyCollection, companySchema);

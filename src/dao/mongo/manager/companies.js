@@ -2,11 +2,11 @@ import companyModel from "../models/company.js";
 
 export default class CompaniesManager {
     getCompanies = () => {
-        return companyModel.find();
+        return companyModel.find().lean();
     }
 
     getCompany = (id) => {
-        return  ompanyModel.findById(id);
+        return  companyModel.findById(id);
     }
 
     createCompany = (company) => {

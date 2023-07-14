@@ -2,7 +2,7 @@ import express from 'express';
 import handlebars from 'express-handlebars';
 import mongoose from 'mongoose';
 import __dirname from './utils.js';
-//import  viewsRouter  from './routes/views.router.js';
+import  viewsRouter  from './routes/views.router.js';
 import companiesRouter from './routes/companies.routes.js';
 
 const app = express();
@@ -14,7 +14,7 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
 
-//app.use("/", viewsRouter);
+app.use("/", viewsRouter);
 app.use("/api/companies", companiesRouter);
 
 app.listen(3000, () => {
