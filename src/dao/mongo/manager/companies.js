@@ -1,24 +1,24 @@
-import CompanyModel from "../models/company.js";
+import companyModel from "../models/company.js";
 
 export default class CompaniesManager {
     getCompanies = () => {
-        return CompanyModel.find();
+        return companyModel.find();
     }
 
     getCompany = (id) => {
-        return CompanyModel.findById(id);
+        return  ompanyModel.findById(id);
     }
 
     createCompany = (company) => {
-        return CompanyModel.create(company);
+        return companyModel.create(company);
     }
 
     updateCompany = (id, company) => {
-        return CompanyModel.findByIdAndUpdate(id, company);
+        return companyModel.findByIdAndUpdate(id, company);
     }
 
     deleteCompany = (id) => {
-        return CompanyModel.findByIdAndDelete(id);
+        return companyModel.findByIdAndDelete(id);
     }
 
 }

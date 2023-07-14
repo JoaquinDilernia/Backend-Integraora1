@@ -1,5 +1,5 @@
 import { Router } from "express";
-import CompaniesManager from "../dao/mongo/manager/companies";
+import CompaniesManager from "../dao/mongo/manager/companies.js";
 
 const router = Router();
 const companiesManager = new CompaniesManager();
