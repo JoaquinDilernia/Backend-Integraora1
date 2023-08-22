@@ -1,12 +1,15 @@
-<div class="home-container">
-	<h1 class="home-title">Home</h1>
-	<p>{{user.first_name}}</p>
-	<p>{{user.email}}</p>
+<div class="carts-container">
+	<h1 class="carts-title">Carts</h1>
 
-	<ul class="home-list">
-		<li class="home-item"> <a href="./products">Products</a></li>
-		<li class="home-item"> <a href="./realTimeProducts">Real time products</a></li>
-		<li class="home-item"> <a href="./chat">Chat</a></li>
-		<li class="home-item"> <a href="./carts/">Carts (has to add the cart id)</a></li>
-	</ul>
+	<div class="carts-list">
+		{{#each payload}}
+		<div class="carts-item">
+			<p class="carts-text">Product: {{this._id._id}}</p>
+			<p class="carts-text">Product: {{this._id.title}}</p>
+			<p class="carts-text">Price: ${{this._id.price}}</p>
+			<p class="carts-text">Quantity: {{this.quantity}}</p>
+		</div>
+		{{/each}}
+	</div>
+
 </div>
