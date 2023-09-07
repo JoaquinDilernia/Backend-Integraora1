@@ -1,18 +1,15 @@
-import authController from "../controllers/auth.controller.js";
-import adminController from "../controllers/admin.controller.js";
-import viewsRoute from './views.router.js';
-import sessionsRoute from './sessions.router.js';
-import productsRoute from './products.router.js';
-import cartsRoute from './carts.router.js';
+import views from './views.router.js';
+import sessions from './sessions.router.js';
+import products from './products.router.js';
+import carts from './carts.router.js';
+import logs from './logs.router.js'
 
 const router = (app) => {
-  app.use("/auth", authController);
-  app.use("/admin", adminController);
-
-  app.use("/", viewsRoute);
-  app.use("/api/sessions", sessionsRoute);
-  app.use("/api/products", productsRoute);
-  app.use("/api/carts", cartsRoute);
+	app.use('/', views);
+	app.use('/api/sessions', sessions);
+	app.use('/api/products', products);
+	app.use('/api/carts', carts);
+	app.use('/api/loggerTest', logs)
 };
 
 export default router;
